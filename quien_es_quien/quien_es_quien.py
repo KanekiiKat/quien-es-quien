@@ -13,7 +13,14 @@ class State(rx.State):
 def index() -> rx.Component:
     # Welcome Page (Index)
     return rx.container(
-
+        rx.box(
+        "CSS color",
+        background_color="orange",
+        border_radius="5px",
+        width="40%",
+        margin="8px",
+        padding="8px",
+    ),
     )
 
 
