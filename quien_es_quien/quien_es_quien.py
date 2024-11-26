@@ -2,6 +2,7 @@
 
 import reflex as rx
 from rxconfig import config
+from quien_es_quien import style
 
 
 class State(rx.State):
@@ -10,19 +11,22 @@ class State(rx.State):
     ...
 
 
-def index() -> rx.Component:
-    # Welcome Page (Index)
-    return rx.container(
-        rx.box(
-        "CSS color",
-        background_color="orange",
-        border_radius="5px",
-        width="40%",
-        margin="8px",
-        padding="8px",
-    ),
+def cartas() -> rx.Component:
+    return rx.grid(
+        rx.foreach(
+            rx.Var.range(24),
+            lambda i: rx.card(f"Card {i + 1}", height="20vh"),
+        ),
+        columns="8",
+        spacing="3",
+        width="60%",
     )
 
+def index() -> rx.Component:
+    return rx.center(
+        cartas()
+         
+    )
 
 app = rx.App()
 app.add_page(index)
