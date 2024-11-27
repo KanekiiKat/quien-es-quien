@@ -2,6 +2,7 @@
 import reflex as rx
 from rxconfig import config
 from quien_es_quien import style
+from quien_es_quien import state
 
 def bloque_cartas() -> rx.Component:
     return rx.center(
@@ -40,7 +41,7 @@ def caja_input() -> rx.Component:
 
 def personaje_a_adivinar() -> rx.Component:
     return rx.box(
-        "Pedro",
+        state.escoger_carta(),
         width="15%",
         height="35vh",
         background_color="red",
