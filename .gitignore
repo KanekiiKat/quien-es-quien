@@ -3,6 +3,7 @@ assets/external/
 __pycache__/
 *.db
 *.py[cod]
+scope.png
 
 #venv
 venv

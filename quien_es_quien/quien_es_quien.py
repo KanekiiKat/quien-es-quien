@@ -1,39 +1,40 @@
-"""Welcome to Reflex! This file outlines the steps to create a basic app."""
 
 import reflex as rx
-
 from rxconfig import config
+from quien_es_quien import style
+from quien_es_quien import state
 
-
-class State(rx.State):
-    """The app state."""
-
-    ...
-
-
-def index() -> rx.Component:
-    # Welcome Page (Index)
-    return rx.container(
-        rx.color_mode.button(position="top-right"),
-        rx.vstack(
-            rx.heading("Welcome to Reflex!", size="9"),
-            rx.text(
-                "Get started by editing ",
-                rx.code(f"{config.app_name}/{config.app_name}.py"),
-                size="5",
-            ),
-            rx.link(
-                rx.button("Check out our docs!"),
-                href="https://reflex.dev/docs/getting-started/introduction/",
-                is_external=True,
-            ),
-            spacing="5",
-            justify="center",
-            min_height="85vh",
-        ),
-        rx.logo(),
+def bloque_cartas() -> rx.Component:
+    return rx.center(
+        rx.box(
+            style = style.caja_cartas,
     )
-
+    )
+    
+def menu() -> rx.Component:
+    return rx.box(
+        style = style.menu,
+    )
+    
+def caja_texto() -> rx.Component:
+    return rx.box(
+        rx.input(placeholder="Ej: ¿Lleva gafas?", width="100%",),
+        style = style.caja_texto
+    )
+    
+def personaje_a_adivinar() -> rx.Component:
+    return rx.box(
+        state.escoger_carta(),
+        style = style.personaje_misterioso
+    )
+    
+def index() -> rx.Component:
+    return rx.box(
+        menu(),
+        bloque_cartas(),
+        personaje_a_adivinar(),
+        caja_texto(),
+    )
 
 app = rx.App()
 app.add_page(index)
