@@ -1,6 +1,6 @@
 
 import random
-import personajes
+from quien_es_quien import personajes
 
 
 
@@ -10,5 +10,3 @@ def escoger_carta():
 
     return random.choice(personajes.personajes).nombre
 
-
-print(escoger_carta())
