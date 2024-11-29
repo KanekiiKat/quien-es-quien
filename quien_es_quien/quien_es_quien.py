@@ -18,8 +18,13 @@ def menu() -> rx.Component:
     
 def caja_texto() -> rx.Component:
     return rx.box(
-        rx.input(placeholder="Ej: ¿Lleva gafas?", width="100%",),
-        style = style.caja_texto
+        rx.input(placeholder="Ej: ¿Lleva gafas?", width="75%", on_change=state.actualizar_pregunta, id="pregunta_input",),
+        rx.button(
+            "Enviar",
+            on_click=state.buscar_caracteristica,
+            ),
+        style = style.caja_texto,
+
     )
     
 def personaje_a_adivinar() -> rx.Component:
