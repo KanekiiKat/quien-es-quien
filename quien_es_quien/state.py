@@ -10,13 +10,13 @@ class caracteristicas_personajes:
         self.color_cabello = color_cabello
         self.color_ojos = color_ojos
         self.genero = genero
-        self.accesorios = accesorios if accesorios else []
-        self.barba = barba if barba else []
+        self.accesorios = accesorios
+        self.barba = barba
         self.mejillas = mejillas
         self.expresion = expresion  
         
     def __str__(self):
-        return f"Nombre: {self.nombre}, Cabello: {self.color_cabello}, Ojos: {self.color_ojos}, Género: {self.genero}, Accesorios: {self.accesorios}, Barba: {self.barba}, Mejillas: {self.mejillas}, Boca: {self.boca}"
+        return f"Nombre: {self.nombre}, Cabello: {self.color_cabello}, Ojos: {self.color_ojos}, Género: {self.genero}, Accesorios: {self.accesorios}, Barba: {self.barba}, Mejillas: {self.mejillas}, Expresion: {self.expresion}"
 
 personajes = [
     caracteristicas_personajes("Susan", color_cabello="blanco", color_ojos="marrones", genero="femenino", expresion="sonrisa"),
@@ -36,19 +36,20 @@ personajes = [
     caracteristicas_personajes("Richard", color_cabello="calvo", color_ojos="marrones", genero="masculino", barba=True),
     caracteristicas_personajes("Paul", color_cabello="blanco", color_ojos="marrones", genero="masculino", accesorios=["gafas"], expresion="seria"),
     caracteristicas_personajes("Maria", color_cabello="castaño", color_ojos="marrones", genero="femenino", accesorios=["pendientes"], expresion="sonrisa"),
-    caracteristicas_personajes("Frans", color_cabello="pelirrojo", color_ojos="marrones", genero="masculino", accesorios=[], expresion="sonrisa"),
-    caracteristicas_personajes("Herman", color_cabello="calvo", color_ojos="marrones", genero="masculino", accesorios=[], expresion="sonrisa"),
+    caracteristicas_personajes("Frans", color_cabello="pelirrojo", color_ojos="marrones", genero="masculino", expresion="sonrisa"),
+    caracteristicas_personajes("Herman", color_cabello="calvo", color_ojos="marrones", genero="masculino", expresion="sonrisa"),
     caracteristicas_personajes("Bernard", color_cabello="castaño", color_ojos="marrones", genero="masculino", accesorios=["sombrero"], expresion="serio"),
-    caracteristicas_personajes("Philip", color_cabello="castaño", color_ojos="marrones", genero="masculino", accesorios=[], expresion="sonrisa"),
+    caracteristicas_personajes("Philip", color_cabello="castaño", color_ojos="marrones", genero="masculino", expresion="sonrisa"),
     caracteristicas_personajes("Eric", color_cabello="rubio", color_ojos="marrones", genero="masculino", accesorios=["sombrero"], expresion="sonrisa"),
-    caracteristicas_personajes("Charles", color_cabello="rubio", color_ojos="marrones", genero="masculino", accesorios=[], expresion="sonrisa"),
-    caracteristicas_personajes("Peter", color_cabello="blanco", color_ojos="azul", genero="masculino", accesorios=[], expresion="sonrisa")
+    caracteristicas_personajes("Charles", color_cabello="rubio", color_ojos="marrones", genero="masculino", expresion="sonrisa"),
+    caracteristicas_personajes("Peter", color_cabello="blanco", color_ojos="azul", genero="masculino", expresion="sonrisa")
 ]
 
 # Personaje aleatorio
 
 def escoger_carta():    
-    return random.choice(personajes).nombre
+
+    return random.choice(personajes)
 
 
 print(escoger_carta())
