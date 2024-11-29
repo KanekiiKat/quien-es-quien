@@ -49,7 +49,7 @@ personajes = [
 
 def escoger_carta():    
 
-    return random.choice(personajes)
+    return random.choice(personajes).nombre
 
 
 print(escoger_carta())
