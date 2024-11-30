@@ -8,5 +8,5 @@ from quien_es_quien import personajes
 
 def escoger_carta():    
 
-    return random.choice(personajes.personajes).nombre
+    return random.choice(personajes.integrantes).nombre
 
