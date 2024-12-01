@@ -5,19 +5,21 @@ from quien_es_quien import style
 from quien_es_quien import state
 from quien_es_quien import personajes
 
-lista = ['Alex', 'Alfred', 'Anita', 'Anne', 'Bernard', 'Bill', 'Charles', 'Claire', 'David', 'Eric', 'Frans', 'George', 'Herman', 'Joe', 'Maria', 'Max', 'Paul', 'Peter', 'Philip', 'Richard', 'Robert', 'Sam', 'Susan', 'Tom']
+
 
 def zona_de_personajes() -> rx.Component:
     return rx.center(
         rx.grid(
             rx.foreach(
-                rx.Var.range(24), lambda i:
+                rx.Var.range(24), lambda i: 
                     rx.card(
-                        rx.image(
-                            src=f"{lista[i + 1]}.jpg", width="100%", height="50%"
-                        ),
-                        height="13em",
-                        width="7.5em"
+                        rx.inset(
+                            rx.image(
+                                src=f"{i + 1}.jpg", width="100%", height="100%"
+                            ),
+                            height="13em",
+                            width="7.5em"
+                    )
                 ),
             ),
             columns="8",
