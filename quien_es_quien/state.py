@@ -1,6 +1,7 @@
 import reflex as rx
 import random
 from quien_es_quien import personajes
+import unicodedata
 
 # Personaje aleatorio
 
@@ -21,6 +22,11 @@ class State(rx.State):
 
     def mensaje_usuario(self):
         if self.pregunta_usuario:
-            print(self.pregunta_usuario)
+            pregunta_limpia = self.limpiar_palabra(self.pregunta_usuario)
+            print(pregunta_limpia)
             self.pregunta_usuario = ""
 
+    def limpiar_palabra(self, texto):
+        limpiar = unicodedata.normalize('NFD', texto)
+        texto_limpio = ''.join(char for char in limpiar if not unicodedata.combining(char)).lower()
+        return texto_limpio
