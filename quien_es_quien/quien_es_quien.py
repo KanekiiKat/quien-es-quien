@@ -3,6 +3,7 @@ import reflex as rx
 from rxconfig import config
 from quien_es_quien import style
 from quien_es_quien import state
+from quien_es_quien.state import State
 from quien_es_quien import personajes
 
 
@@ -29,12 +30,20 @@ def zona_de_personajes() -> rx.Component:
     )
 
 def barra_de_accion() -> rx.Component:
-    return rx.hstack(
+    return rx.box(
+        rx.input(
+            value=State.pregunta_usuario,
+            placeholder="Ej: ¿Lleva gafas?", 
+            on_change=State.set_pregunta_usuario,
+            width="75%"
+            
+        ),
+        rx.button(
+            "Enviar",
+            on_click=State.mensaje_usuario
+            ),
+        style = style.caja_texto,
 
-        rx.input(placeholder="Ej: ¿Lleva gafas?", width="75%",),
-        rx.button("Enviar"),
-        style=style.caja_texto,
-        left="28%",
     )
 
     
