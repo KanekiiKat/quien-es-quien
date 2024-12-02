@@ -1,4 +1,4 @@
-
+import reflex as rx
 import random
 from quien_es_quien import personajes
 import reflex as rx
@@ -8,7 +8,7 @@ from quien_es_quien import quien_es_quien
 
 def escoger_carta():    
 
-    return random.choice(personajes.personajes).nombre
+    return random.choice(personajes.integrantes).nombre
 
 # Enviar el mensaje del input
 
