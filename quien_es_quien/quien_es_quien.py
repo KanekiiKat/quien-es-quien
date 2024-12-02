@@ -30,7 +30,7 @@ def zona_de_personajes() -> rx.Component:
     )
 
 def barra_de_accion() -> rx.Component:
-    return rx.box(
+    return rx.hstack(
         rx.input(
             value=State.pregunta_usuario,
             placeholder="Ej: ¿Lleva gafas?", 
