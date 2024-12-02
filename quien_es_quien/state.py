@@ -1,8 +1,6 @@
 import reflex as rx
 import random
 from quien_es_quien import personajes
-import reflex as rx
-from quien_es_quien import quien_es_quien
 
 # Personaje aleatorio
 
@@ -12,14 +10,17 @@ def escoger_carta():
 
 # Enviar el mensaje del input
 
+
 class State(rx.State):
 
-    texto: str
+    pregunta_usuario: str = ""
 
     @rx.event
-    def pregunta(self):
-        self.pregunta = self
+    def escribir_pregunta_usuario(self, value):
+        self.pregunta_usuario = value
 
-    @rx.event
-    def buscar_caracteristica(self):
-        print(self.texto)
+    def mensaje_usuario(self):
+        if self.pregunta_usuario:
+            print(self.pregunta_usuario)
+            self.pregunta_usuario = ""
+

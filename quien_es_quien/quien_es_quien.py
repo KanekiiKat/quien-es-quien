@@ -34,29 +34,12 @@ def barra_de_accion() -> rx.Component:
         rx.input(
             value=State.pregunta_usuario,
             placeholder="Ej: ¿Lleva gafas?", 
-            on_change=State.set_pregunta_usuario,
-            width="75%"
-            
+            width="75%",
+            on_change=State.escribir_pregunta_usuario,
         ),
         rx.button(
             "Enviar",
             on_click=State.mensaje_usuario
-            ),
-        style = style.caja_texto,
-
-    )
-    
-def menu() -> rx.Component:
-    return rx.box(
-        style = style.menu,
-    )
-    
-def caja_texto() -> rx.Component:
-    return rx.box(
-        rx.input(placeholder="Ej: ¿Lleva gafas?", width="75%", on_change=state.actualizar_pregunta, id="pregunta_input",),
-        rx.button(
-            "Enviar",
-            on_click=state.buscar_caracteristica,
             ),
         style = style.caja_texto,
 
