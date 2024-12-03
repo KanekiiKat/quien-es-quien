@@ -17,6 +17,7 @@ class State(rx.State):
 
     pregunta_usuario: str = ""
     pregunta_limpia: str = ""
+    cartas_tapadas: list = []
 
     @rx.event
     def escribir_pregunta_usuario(self, value):
@@ -38,7 +39,8 @@ class State(rx.State):
          
 
     def identificar_caracteristicas(self):
+        self.cartas_tapadas = []
         for personas in personajes.integrantes:
-
-            if self.pregunta_limpia in str(personas):
-                print(f"{personas.nombre}")
+            if self.pregunta_limpia not in str(personas):
+                self.cartas_tapadas.append(personajes.integrantes.index(personas) + 1)
+        return print(self.cartas_tapadas)
