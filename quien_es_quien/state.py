@@ -23,10 +23,13 @@ class State(rx.State):
     def mensaje_usuario(self):
         if self.pregunta_usuario:
             pregunta_limpia = self.limpiar_palabra(self.pregunta_usuario)
-            print(pregunta_limpia)
             self.pregunta_usuario = ""
+            print(pregunta_limpia)
 
     def limpiar_palabra(self, texto):
-        limpiar = unicodedata.normalize('NFD', texto)
-        texto_limpio = ''.join(char for char in limpiar if not unicodedata.combining(char)).lower()
+        texto_limpio = ''.join(char for char in unicodedata.normalize('NFD', texto) if not unicodedata.combining(char)).lower()
         return texto_limpio
+
+    def identificar_caracteristicas(texto_limpio):
+        
+        pass
