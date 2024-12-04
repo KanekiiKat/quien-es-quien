@@ -12,22 +12,33 @@ def zona_de_personajes() -> rx.Component:
     return rx.center(
         rx.grid(
             rx.foreach(
-                rx.Var.range(24), lambda i: 
+                rx.Var.range(24), lambda i:
                     rx.card(
                         rx.inset(
-                            rx.image(
-                                src=f"{i + 1}.jpg", width="100%", height="100%"
+                            rx.cond(
+                                State.show,
+                                rx.image(
+                                    src=f"{i + 1}.jpg", width = "100%", height = "100%"
+                                ),
+                                
+                                rx.image(
+                                    src="cartatapada.jpg", width = "100%", height = "100%"
+                                ),
+                                
+
                             ),
-                            height="13em",
-                            width="7.5em"
-                    )
+                            height = "13em",
+                            width = "7.5em"
+                        ),
+                        id=f"{i+1}"
+                    ),
                 ),
+                columns="8",
+                spacing="4",
+                width="60%",
             ),
-            columns="8",
-            spacing="4",
-            width="60%",
-        )
-    )
+            
+        ),
 
 def barra_de_accion() -> rx.Component:
     return rx.hstack(
