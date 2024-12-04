@@ -16,7 +16,7 @@ def zona_de_personajes() -> rx.Component:
                     rx.card(
                         rx.inset(
                             rx.cond(
-                                State.show,
+                                State.show[i],
                                 rx.image(
                                     src=f"{i + 1}.jpg", width = "100%", height = "100%"
                                 ),
