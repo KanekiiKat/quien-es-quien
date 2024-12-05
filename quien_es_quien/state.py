@@ -4,8 +4,8 @@ from quien_es_quien import personajes
 import unicodedata
 
 
-def escoger_carta(): 
-    global elegido   
+def escoger_carta():
+    global elegido
     elegido = random.choice(personajes.integrantes)
     return personajes.integrantes.index(elegido) + 1
 
@@ -16,13 +16,12 @@ class State(rx.State):
     show: list = [True] * 24
     cartas_tapadas: list = []
     cartas_a_tapar: list = []
+    interruptor: bool = False
 
 
     def change(self):
-        for carta in self.cartas_tapadas: 
+        for carta in self.cartas_tapadas:
             self.show[carta] = False
-
-
 
 
     def escribir_pregunta_usuario(self, value):
@@ -39,10 +38,22 @@ class State(rx.State):
         if self.pregunta_usuario:
             self.pregunta_limpia = self.limpiar_palabra(self.pregunta_usuario)
             self.pregunta_usuario = ""
-            self.identificar_caracteristicas()    
+            self.identificar_caracteristicas()
 
 
-    def identificar_caracteristicas(self): 
+    def adivinar(self):
+        self.interruptor = False
+        for persona in personajes.integrantes:
+            if self.pregunta_limpia in persona.nombre:
+                if self.pregunta_limpia == elegido.nombre:
+                    print("Has ganado")
+                    break
+                elif self.pregunta_limpia != elegido.nombre:
+                    print("Das pena XD")
+                    break
+
+
+    def identificar_caracteristicas(self):
         if self.pregunta_limpia == "reset":
             self.show = [True] * 24
             self.cartas_tapadas = []
@@ -55,3 +66,7 @@ class State(rx.State):
                     self.cartas_tapadas.append(personajes.integrantes.index(persona))
         self.change()
         print(self.cartas_tapadas)
+
+    def test(self):
+        self.mensaje_usuario()
+        self.adivinar()
