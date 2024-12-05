@@ -9,14 +9,13 @@ def escoger_carta():
     elegido = random.choice(personajes.integrantes)
     return personajes.integrantes.index(elegido) + 1
 
-
 class State(rx.State):
 
     pregunta_usuario: str = ""
     pregunta_limpia: str = ""
-    cartas_tapadas: list = []
     show: list = [True] * 24
-
+    cartas_tapadas: list = []
+    cartas_a_tapar: list = []
 
 
     def change(self):
@@ -43,15 +42,16 @@ class State(rx.State):
             self.identificar_caracteristicas()    
 
 
-    def identificar_caracteristicas(self):
-        self.cartas_tapadas = []
-
-        for personas in personajes.integrantes:
+    def identificar_caracteristicas(self): 
+        if self.pregunta_limpia == "reset":
+            self.show = [True] * 24
+            self.cartas_tapadas = []
+        for persona in personajes.integrantes:
             if self.pregunta_limpia in str(elegido):
-                if self.pregunta_limpia not in str(personas):
-                    self.cartas_tapadas.append(personajes.integrantes.index(personas) + 1)
+                if self.pregunta_limpia not in str(persona) and personajes.integrantes.index(persona) not in self.cartas_tapadas:
+                    self.cartas_tapadas.append(personajes.integrantes.index(persona))
             else:
-                if self.pregunta_limpia in str(personas):
-                    self.cartas_tapadas.append(personajes.integrantes.index(personas) + 1)
+                if self.pregunta_limpia in str(persona) and personajes.integrantes.index(persona) not in self.cartas_tapadas:
+                    self.cartas_tapadas.append(personajes.integrantes.index(persona))
         self.change()
         print(self.cartas_tapadas)
