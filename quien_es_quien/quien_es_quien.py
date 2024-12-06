@@ -40,6 +40,43 @@ def zona_de_personajes() -> rx.Component:
             
         ),
 
+def pantalla_victoria():
+    return rx.dialog.root(
+    rx.dialog.trigger(
+                rx.cond(
+                    State.victoria,
+                    
+                )
+            ),
+    rx.dialog.content(
+        rx.dialog.title("Welcome to Reflex!"),
+        rx.dialog.description(
+            "This is a dialog component. You can render anything you want in here.",
+        ),
+        rx.dialog.close(
+            rx.button("Close Dialog", size="3"),
+        ),
+    ),
+)
+
+'''
+def pantalla_derrota():
+    return rx.dialog(
+        is_open=State.derrota,  # Se muestra si derrota es True
+        children=[
+            rx.dialog.title("¡Te equivocaste!"),
+            rx.dialog.description("Haber estudiao."),
+            rx.dialog.close(
+                rx.button(
+                    "Reintentar", size = "3"
+                )
+            ),
+        ],
+    )
+'''
+
+
+
 def barra_de_accion() -> rx.Component:
     return rx.hstack(
         rx.input(
@@ -67,6 +104,7 @@ def index() -> rx.Component:
         zona_de_personajes(),
         personaje_a_adivinar(),
         barra_de_accion(),
+        pantalla_victoria()
     )
 
 app = rx.App()
