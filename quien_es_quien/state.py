@@ -3,11 +3,13 @@ import random
 from quien_es_quien import personajes
 import unicodedata
 
-
 def escoger_carta():
     global elegido
     elegido = random.choice(personajes.integrantes)
-    return personajes.integrantes.index(elegido) + 1
+    global elegido_num
+    elegido_num = personajes.integrantes.index(elegido) + 1
+    print(elegido_num)
+    return elegido_num
 
 class State(rx.State):
 
@@ -16,6 +18,7 @@ class State(rx.State):
     show: list = [True] * 24
     cartas_tapadas: list = []
     cartas_a_tapar: list = []
+    fin_de_juego: bool = False
 
     def change(self):
         for carta in self.cartas_tapadas:
@@ -38,22 +41,23 @@ class State(rx.State):
             self.pregunta_usuario = ""
             self.identificar_caracteristicas()
 
+
     def adivinar(self):
         for persona in personajes.integrantes:
             if self.pregunta_limpia in persona.nombre:
                 if self.pregunta_limpia == elegido.nombre:
-                    print("1")
+                    self.fin_de_juego = True
                     return rx.toast.success("¡Has ganado!")
                 elif self.pregunta_limpia != elegido.nombre:
-                    print("2")
+                    self.fin_de_juego = True
                     return rx.toast.success("Das pena XD")
-
 
 
     def identificar_caracteristicas(self):
         if self.pregunta_limpia == "reset":
             self.show = [True] * 24
             self.cartas_tapadas = []
+            self.fin_de_juego = False
         for persona in personajes.integrantes:
             if self.pregunta_limpia in str(elegido):
                 if self.pregunta_limpia not in str(persona) and personajes.integrantes.index(persona) not in self.cartas_tapadas:

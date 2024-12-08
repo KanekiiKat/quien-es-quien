@@ -4,8 +4,7 @@ from rxconfig import config
 from quien_es_quien import style
 from quien_es_quien import state
 from quien_es_quien.state import State
-from quien_es_quien import personajes
-
+from quien_es_quien.state import escoger_carta
 
 
 def zona_de_personajes() -> rx.Component:
@@ -59,7 +58,14 @@ def barra_de_accion() -> rx.Component:
     
 def personaje_a_adivinar() -> rx.Component:
     return rx.box(
-        state.escoger_carta(),
+        rx.cond(
+            State.fin_de_juego,
+            rx.image(src=f"{escoger_carta()}.jpg", width="100%", heigth="100%",
+                     ),
+                     
+            rx.image(src="cartatapada.jpg", width="100%", heigth="100%",
+                     ),
+        ),
         style = style.personaje_misterioso
     )
 
@@ -68,7 +74,6 @@ def index() -> rx.Component:
         zona_de_personajes(),
         personaje_a_adivinar(),
         barra_de_accion(),
-
     )
 
 app = rx.App()
