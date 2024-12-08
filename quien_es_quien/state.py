@@ -16,8 +16,6 @@ class State(rx.State):
     show: list = [True] * 24
     cartas_tapadas: list = []
     cartas_a_tapar: list = []
-    victoria: bool = False
-    derrota: bool = False
 
     def change(self):
         for carta in self.cartas_tapadas:
@@ -40,19 +38,15 @@ class State(rx.State):
             self.pregunta_usuario = ""
             self.identificar_caracteristicas()
 
-
     def adivinar(self):
         for persona in personajes.integrantes:
             if self.pregunta_limpia in persona.nombre:
                 if self.pregunta_limpia == elegido.nombre:
-                    self.victoria = True
                     print("1")
-                    break
+                    return rx.toast.success("¡Has ganado!")
                 elif self.pregunta_limpia != elegido.nombre:
-                    self.derrota = True
-                    self.victoria = False
                     print("2")
-                    break
+                    return rx.toast.success("Das pena XD")
 
 
 
