@@ -68,7 +68,7 @@ def personaje_a_adivinar() -> rx.Component:
         ),
         style = style.personaje_misterioso
     )
-@rx.page(on_load=State.escoger_personaje)
+@rx.page(on_load=State.personaje_aleatorio)
 def index() -> rx.Component:
     return rx.box(
         zona_de_personajes(),

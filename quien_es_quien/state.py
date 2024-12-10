@@ -4,6 +4,7 @@ import random
 from quien_es_quien import personajes
 from quien_es_quien.backend.limpiar_mensaje import limpiar_mensaje
 from quien_es_quien.backend.girar_carta import girar_carta
+from quien_es_quien.backend.personaje_aleatorio import personaje_aleatorio
 class State(rx.State):
 
     mensaje: str = ""
@@ -15,9 +16,8 @@ class State(rx.State):
     elegido = ""
     elegido_num = ""
 
-    def escoger_personaje(self):
-        self.elegido = random.choice(personajes.integrantes)
-        self.elegido_num = personajes.integrantes.index(self.elegido) + 1
+    def personaje_aleatorio(self):
+        personaje_aleatorio(self)
     
     def girar_carta(self):
         girar_carta(self)
@@ -47,7 +47,7 @@ class State(rx.State):
             self.show = [True] * 24
             self.cartas_tapadas = []
             self.fin_de_juego = False
-            self.escoger_personaje()
+            self.personaje_aleatorio()
         for persona in personajes.integrantes:
             if self.mensaje_limpio in str(self.elegido):
                 if self.mensaje_limpio not in str(persona) and personajes.integrantes.index(persona) not in self.cartas_tapadas:
