@@ -3,15 +3,7 @@ import random
 from quien_es_quien import personajes
 import unicodedata
 
-'''
-def escoger_carta():
-    global elegido
-    elegido = random.choice(personajes.integrantes)
-    global elegido_num
-    elegido_num = personajes.integrantes.index(elegido) + 1
-    print(elegido_num)
-    return elegido_num
-'''
+
 class State(rx.State):
 
     pregunta_usuario: str = ""
@@ -26,9 +18,6 @@ class State(rx.State):
     def escoger_carta(self):
         self.elegido = random.choice(personajes.integrantes)
         self.elegido_num = personajes.integrantes.index(self.elegido) + 1
-        print(self.elegido_num)
-        
-
     
     def change(self):
         for carta in self.cartas_tapadas:
@@ -77,7 +66,6 @@ class State(rx.State):
                 if self.pregunta_limpia in str(persona) and personajes.integrantes.index(persona) not in self.cartas_tapadas:
                     self.cartas_tapadas.append(personajes.integrantes.index(persona))
         self.change()
-        print(self.cartas_tapadas)
 
     def test(self):
         self.mensaje_usuario()
