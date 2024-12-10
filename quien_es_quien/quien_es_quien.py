@@ -5,8 +5,6 @@ from quien_es_quien import style
 from quien_es_quien import state
 from quien_es_quien.state import State
 
-
-
 def zona_de_personajes() -> rx.Component:
     return rx.center(
         rx.grid(
@@ -50,7 +48,7 @@ def barra_de_accion() -> rx.Component:
         ),
         rx.button(
             "Enviar",
-            on_click=[State.limpiar_mensaje, State.adivinar]
+            on_click=[State.analizar_mensaje, State.adivinar]
             ),
         style = style.caja_texto,
 

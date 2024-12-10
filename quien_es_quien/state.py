@@ -1,10 +1,11 @@
 
 import reflex as rx
-import random
 from quien_es_quien import personajes
 from quien_es_quien.backend.limpiar_mensaje import limpiar_mensaje
 from quien_es_quien.backend.girar_carta import girar_carta
 from quien_es_quien.backend.personaje_aleatorio import personaje_aleatorio
+from quien_es_quien.backend.reiniciar import reiniciar
+from quien_es_quien.backend.buscar_caracteristica import buscar_caracteristica
 class State(rx.State):
 
     mensaje: str = ""
@@ -22,37 +23,33 @@ class State(rx.State):
     def girar_carta(self):
         girar_carta(self)
 
+    def limpiar_mensaje(self):
+        limpiar_mensaje(self)
+
+    def reiniciar(self):
+        reiniciar(self)
+
+    def buscar_caracteristica(self):
+        buscar_caracteristica(self)
 
     def detectar_mensaje(self, value):
         self.mensaje = value
 
-
-    def limpiar_mensaje(self):
-        limpiar_mensaje(self)
-
+    def analizar_mensaje(self):
+        self.limpiar_mensaje()
+        self.reiniciar()
+        self.buscar_caracteristica()
+        self.girar_carta()
 
     def adivinar(self):
         for persona in personajes.integrantes:
             if self.mensaje_limpio in persona.nombre:
                 if self.mensaje_limpio == self.elegido.nombre:
                     self.fin_de_juego = True
+                    self.girar_carta()
                     return rx.toast.success("¡Has ganado!")
                 elif self.mensaje_limpio != self.elegido.nombre:
                     self.fin_de_juego = True
+                    self.girar_carta()
                     return rx.toast.success("Das pena XD")
 
-
-    def analizar_mensaje(self):
-        if self.mensaje_limpio == "reset":
-            self.show = [True] * 24
-            self.cartas_tapadas = []
-            self.fin_de_juego = False
-            self.personaje_aleatorio()
-        for persona in personajes.integrantes:
-            if self.mensaje_limpio in str(self.elegido):
-                if self.mensaje_limpio not in str(persona) and personajes.integrantes.index(persona) not in self.cartas_tapadas:
-                    self.cartas_tapadas.append(personajes.integrantes.index(persona))
-            else:
-                if self.mensaje_limpio in str(persona) and personajes.integrantes.index(persona) not in self.cartas_tapadas:
-                    self.cartas_tapadas.append(personajes.integrantes.index(persona))
-        self.girar_carta()
