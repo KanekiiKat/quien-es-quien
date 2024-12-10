@@ -2,8 +2,7 @@ import reflex as rx
 import random
 from quien_es_quien import personajes
 import unicodedata
-
-
+from quien_es_quien.backend.limpiador_mensaje import limpia_mensaje
 class State(rx.State):
 
     mensaje: str = ""
@@ -28,17 +27,8 @@ class State(rx.State):
         self.mensaje = value
 
 
-    def limpiador_de_mensaje(self, texto):
-
-        texto_limpio = ''.join(char for char in unicodedata.normalize('NFD', texto) if not unicodedata.combining(char)).lower()
-        return texto_limpio
-
-
     def limpiar_mensaje(self):
-        if self.mensaje:
-            self.mensaje_limpio = self.limpiador_de_mensaje(self.mensaje)
-            self.mensaje = ""
-            self.analizar_mensaje()
+        limpia_mensaje(self)
 
 
     def adivinar(self):
