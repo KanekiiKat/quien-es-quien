@@ -1,8 +1,8 @@
 import reflex as rx
 import random
 from quien_es_quien import personajes
-import unicodedata
-from quien_es_quien.backend.limpiador_mensaje import limpia_mensaje
+from quien_es_quien.backend.limpiar_mensaje import limpiar_mensaje
+from quien_es_quien.backend.girar_carta import girar_carta
 class State(rx.State):
 
     mensaje: str = ""
@@ -19,8 +19,7 @@ class State(rx.State):
         self.elegido_num = personajes.integrantes.index(self.elegido) + 1
     
     def girar_carta(self):
-        for carta in self.cartas_tapadas:
-            self.show[carta] = False
+        girar_carta(self)
 
 
     def detectar_mensaje(self, value):
@@ -28,7 +27,7 @@ class State(rx.State):
 
 
     def limpiar_mensaje(self):
-        limpia_mensaje(self)
+        limpiar_mensaje(self)
 
 
     def adivinar(self):
