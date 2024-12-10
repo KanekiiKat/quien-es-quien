@@ -7,8 +7,6 @@ from quien_es_quien import style
 from quien_es_quien import state
 from quien_es_quien.state import State
 
-
-
 def zona_de_personajes() -> rx.Component:
     return rx.center(
         rx.grid(
@@ -45,14 +43,14 @@ def zona_de_personajes() -> rx.Component:
 def barra_de_accion() -> rx.Component:
     return rx.hstack(
         rx.input(
-            value=State.pregunta_usuario,
-            placeholder="Ej: ¿Lleva gafas?", 
+            value=State.mensaje,
+            placeholder="Ej: Gafas", 
             width="75%",
-            on_change=State.escribir_pregunta_usuario,
+            on_change=State.detectar_mensaje,
         ),
         rx.button(
             "Enviar",
-            on_click=[State.test, State.adivinar]
+            on_click=[State.analizar_mensaje, State.adivinar]
             ),
         style = style.caja_texto,
 
@@ -70,7 +68,7 @@ def personaje_a_adivinar() -> rx.Component:
         ),
         style = style.personaje_misterioso
     )
-@rx.page(on_load=State.escoger_carta)
+@rx.page(on_load=State.personaje_aleatorio)
 def index() -> rx.Component:
     return rx.box(
         zona_de_personajes(),

@@ -1,41 +1,35 @@
 
-class CaracteristicasPersonajes:
-    def __init__(self, nombre, color_cabello, color_ojos, genero, accesorios = False, barba = False, mejillas = False, expresion = False):
+class Personajes:
+    def __init__(self, nombre, caracteristicas):
         self.nombre = nombre
-        self.color_cabello = color_cabello
-        self.color_ojos = color_ojos
-        self.genero = genero
-        self.accesorios = accesorios
-        self.barba = barba
-        self.mejillas = mejillas
-        self.expresion = expresion  
+        self.caracteristicas = caracteristicas
         
     def __str__(self):
-        return f"{self.nombre} {self.color_cabello} {self.color_ojos} {self.genero} {self.accesorios}, {self.barba}, {self.mejillas}, {self.expresion}"
+        return f"{self.nombre} {self.caracteristicas}"
 
 integrantes = [
-    CaracteristicasPersonajes("alex", color_cabello="negro", color_ojos="marrones", genero="masculino", accesorios=["bigote"], expresion="sonrisa"),
-    CaracteristicasPersonajes("alfred", color_cabello="pelirrojo", color_ojos="azules", genero="masculino", expresion="triste"),
-    CaracteristicasPersonajes("anita", color_cabello="rubio", color_ojos="azules", genero="femenino", accesorios=["lazos"], expresion="sonrisa"),
-    CaracteristicasPersonajes("anne", color_cabello="negro", color_ojos="marrones", genero="femenino", accesorios=["pendientes"], expresion="seria"),
-    CaracteristicasPersonajes("bernard", color_cabello="castano", color_ojos="marrones", genero="masculino", accesorios=["sombrero"], expresion="serio"),
-    CaracteristicasPersonajes("bill", color_cabello="calvo", color_ojos="marrones", genero="masculino", barba=True, mejillas="gordas"),
-    CaracteristicasPersonajes("charles", color_cabello="rubio", color_ojos="marrones", genero="masculino", expresion="sonrisa"),
-    CaracteristicasPersonajes("claire", color_cabello="pelirrojo", color_ojos="marrones", genero="femenino", accesorios=["sombrero", "gafas"], expresion="sonrisa"),
-    CaracteristicasPersonajes("david", color_cabello="rubio", color_ojos="castanos", genero="masculino", barba=True),
-    CaracteristicasPersonajes("eric", color_cabello="rubio", color_ojos="marrones", genero="masculino", accesorios=["sombrero"], expresion="sonrisa"),
-    CaracteristicasPersonajes("frans", color_cabello="pelirrojo", color_ojos="marrones", genero="masculino", expresion="sonrisa"),
-    CaracteristicasPersonajes("george", color_cabello="blanco", color_ojos="marrones", genero="masculino", accesorios=["sombrero"], expresion="seria"),
-    CaracteristicasPersonajes("herman", color_cabello="calvo", color_ojos="marrones", genero="masculino", expresion="sonrisa"),
-    CaracteristicasPersonajes("joe", color_cabello="rubio", color_ojos="marrones", genero="masculino", accesorios=["gafas"], mejillas="redondeadas"),
-    CaracteristicasPersonajes("maria", color_cabello="castano", color_ojos="marrones", genero="femenino", accesorios=["pendientes"], expresion="sonrisa"),
-    CaracteristicasPersonajes("max", color_cabello="negro", color_ojos="marrones", genero="masculino", accesorios=["bigote"]),
-    CaracteristicasPersonajes("paul", color_cabello="blanco", color_ojos="marrones", genero="masculino", accesorios=["gafas"], expresion="seria"),
-    CaracteristicasPersonajes("peter", color_cabello="blanco", color_ojos="azul", genero="masculino", expresion="sonrisa"),
-    CaracteristicasPersonajes("philip", color_cabello="castano", color_ojos="marrones", genero="masculino", expresion="sonrisa"),
-    CaracteristicasPersonajes("richard", color_cabello="calvo", color_ojos="marrones", genero="masculino", barba=True),
-    CaracteristicasPersonajes("robert", color_cabello="castano", color_ojos="azules", genero="masculino", mejillas="sonrojadas"),
-    CaracteristicasPersonajes("sam", color_cabello="calvo", color_ojos="marrones", genero="masculino", accesorios=["gafas"], mejillas="redondeadas"),
-    CaracteristicasPersonajes("susan", color_cabello="blanco", color_ojos="marrones", genero="femenino", expresion="sonrisa"),
-    CaracteristicasPersonajes("tom", color_cabello="calvo", color_ojos="azules", genero="masculino", accesorios=["gafas"], expresion="seria"),
+    Personajes("alex", caracteristicas=["negro", "marrones", "masculino", "hombre", "bigote", "sonrisa", "felicidad"]),
+    Personajes("alfred", caracteristicas=["pelirrojo", "rojo", "azules", "celestes", "masculino", "hombre", "triste", "melancólico"]),
+    Personajes("anita", caracteristicas=["rubio", "amarillo", "azules", "celestes", "femenino", "mujer", "lazos", "moños", "sonrisa", "felicidad"]),
+    Personajes("anne", caracteristicas=["negro", "oscuro", "marrones", "cafe", "femenino", "mujer", "pendientes", "aretes", "seria", "formal"]),
+    Personajes("bernard", caracteristicas=["castano", "marron", "marrones", "cafe", "masculino", "hombre", "sombrero", "gorra", "serio", "formal"]),
+    Personajes("bill", caracteristicas=["calvo", "marrones", "cafe", "masculino", "hombre", "barba", "gordas", "anchas"]),
+    Personajes("charles", caracteristicas=["rubio", "amarillo", "marrones", "cafe", "masculino", "hombre", "sonrisa", "felicidad"]),
+    Personajes("claire", caracteristicas=["pelirrojo", "rojo", "marrones", "cafe", "femenino", "mujer", "sombrero", "gorra", "gafas", "lentes", "sonrisa", "felicidad"]),
+    Personajes("david", caracteristicas=["rubio", "amarillo", "castanos", "marrones", "masculino", "hombre", "barba", ]),
+    Personajes("eric", caracteristicas=["rubio", "amarillo", "marrones", "cafe", "masculino", "hombre", "sombrero", "gorra", "sonrisa", "felicidad"]),
+    Personajes("frans", caracteristicas=["pelirrojo", "rojo", "marrones", "cafe", "masculino", "hombre", "sonrisa", "felicidad"]),
+    Personajes("george", caracteristicas=["blanco", "gris", "marrones", "cafe", "masculino", "hombre", "sombrero", "gorra", "seria", "formal"]),
+    Personajes("herman", caracteristicas=["calvo", "marrones", "cafe", "masculino", "hombre", "sonrisa", "felicidad"]),
+    Personajes("joe", caracteristicas=["rubio", "amarillo", "marrones", "cafe", "masculino", "hombre", "gafas", "lentes", "redondeadas", "circulares"]),
+    Personajes("maria", caracteristicas=["castano", "marron", "marrones", "cafe", "femenino", "mujer", "pendientes", "aretes", "sonrisa", "felicidad"]),
+    Personajes("max", caracteristicas=["negro", "oscuro", "marrones", "cafe", "masculino", "hombre", "bigote", ]),
+    Personajes("paul", caracteristicas=["blanco", "gris", "marrones", "cafe", "masculino", "hombre", "gafas", "lentes", "seria", "formal"]),
+    Personajes("peter", caracteristicas=["blanco", "gris", "azul", "celeste", "masculino", "hombre", "sonrisa", "felicidad"]),
+    Personajes("philip", caracteristicas=["castano", "marron", "marrones", "cafe", "masculino", "hombre", "sonrisa", "felicidad"]),
+    Personajes("richard", caracteristicas=["calvo", "marrones", "cafe", "masculino", "hombre", "barba", ]),
+    Personajes("robert", caracteristicas=["castano", "marron", "azules", "celestes", "masculino", "hombre", "sonrojadas", "ruborizadas"]),
+    Personajes("sam", caracteristicas=["calvo", "marrones", "cafe", "masculino", "hombre", "gafas", "lentes", "redondeadas", "circulares"]),
+    Personajes("susan", caracteristicas=["blanco", "gris", "marrones", "cafe", "femenino", "mujer", "sonrisa", "felicidad"]),
+    Personajes("tom", caracteristicas=["calvo", "azules", "celestes", "masculino", "hombre", "gafas", "lentes", "seria", "formal"]),
 ]
