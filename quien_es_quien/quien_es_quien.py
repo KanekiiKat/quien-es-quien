@@ -43,10 +43,10 @@ def zona_de_personajes() -> rx.Component:
 def barra_de_accion() -> rx.Component:
     return rx.hstack(
         rx.input(
-            value=State.pregunta_usuario,
-            placeholder="Ej: ¿Lleva gafas?", 
+            value=State.mensaje,
+            placeholder="Ej: Gafas", 
             width="75%",
-            on_change=State.escribir_pregunta_usuario,
+            on_change=State.detectar_mensaje,
         ),
         rx.button(
             "Enviar",
@@ -68,7 +68,7 @@ def personaje_a_adivinar() -> rx.Component:
         ),
         style = style.personaje_misterioso
     )
-@rx.page(on_load=State.escoger_carta)
+@rx.page(on_load=State.escoger_personaje)
 def index() -> rx.Component:
     return rx.box(
         zona_de_personajes(),
