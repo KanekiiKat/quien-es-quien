@@ -1,3 +1,4 @@
+
 import reflex as rx
 import random
 from quien_es_quien import personajes
@@ -55,7 +56,3 @@ class State(rx.State):
                 if self.mensaje_limpio in str(persona) and personajes.integrantes.index(persona) not in self.cartas_tapadas:
                     self.cartas_tapadas.append(personajes.integrantes.index(persona))
         self.girar_carta()
-
-    def test(self):
-        self.limpiar_mensaje()
-        self.adivinar()

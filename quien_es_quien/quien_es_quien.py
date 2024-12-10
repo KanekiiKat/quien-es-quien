@@ -50,7 +50,7 @@ def barra_de_accion() -> rx.Component:
         ),
         rx.button(
             "Enviar",
-            on_click=[State.test, State.adivinar]
+            on_click=[State.limpiar_mensaje, State.adivinar]
             ),
         style = style.caja_texto,
 
