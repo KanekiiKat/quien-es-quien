@@ -37,7 +37,6 @@ class State(rx.State):
 
     def analizar_mensaje(self):
         self.limpiar_mensaje()
-        self.reiniciar()
         self.buscar_caracteristica()
         self.girar_carta()
 

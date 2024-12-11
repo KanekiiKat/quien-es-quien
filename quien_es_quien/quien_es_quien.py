@@ -66,12 +66,32 @@ def personaje_a_adivinar() -> rx.Component:
         ),
         style = style.personaje_misterioso
     )
+
+
+def reiniciar_partida() -> rx.Component:
+    return rx.stack(
+    rx.button( 
+        "Reiniciar partida",
+        on_click=State.reiniciar,
+        align="center",
+        position="absolute",
+        color_scheme="red",
+    ),
+    width="15%",
+    heigth="10%",
+    background_color="grey",
+    position="absolute",
+    left="6%",
+    top="3%",  
+    )
+
 @rx.page(on_load=State.personaje_aleatorio)
 def index() -> rx.Component:
     return rx.box(
         zona_de_personajes(),
         personaje_a_adivinar(),
         barra_de_accion(),
+        reiniciar_partida(),
     )
  
 app = rx.App()
