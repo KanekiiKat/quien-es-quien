@@ -39,19 +39,22 @@ def zona_de_personajes() -> rx.Component:
 
 
 def barra_de_accion() -> rx.Component:
-    return rx.hstack(
-        rx.input(
-            value=State.mensaje,
-            placeholder="Ej: Gafas", 
-            width="75%",
-            on_change=State.detectar_mensaje,
-        ),
-        rx.button(
-            "Enviar",
-            on_click=[State.analizar_mensaje, State.adivinar]
+    return rx.form( 
+            rx.hstack(
+                rx.input(
+                    value=State.mensaje,
+                    placeholder="Ej: Gafas", 
+                    width="75%",
+                    on_change=State.detectar_mensaje,
+                ),
+                rx.button(
+                    "Enviar",
+                    on_click=[State.analizar_mensaje, State.adivinar],
+                    enter_key_submit=True
+                    ),
+                style = style.caja_texto,
             ),
-        style = style.caja_texto,
-
+    enter_key_submit=True
     )
     
 def personaje_a_adivinar() -> rx.Component:
