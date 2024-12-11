@@ -9,3 +9,7 @@ venv
 
 #VSCode
 .vscode
+
+#Coverage
+.coverage
+coverage_annotation/
