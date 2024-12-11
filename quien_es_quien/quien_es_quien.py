@@ -1,5 +1,7 @@
+"""Welcome to Reflex! This file outlines the steps to create a basic app."""
 
 import reflex as rx
+
 from rxconfig import config
 from quien_es_quien import style
 from quien_es_quien import state
