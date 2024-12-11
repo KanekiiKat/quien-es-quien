@@ -2,17 +2,30 @@
 
 
 - [Introduccion](#introduccion)
+    - [Scope](#scope)
 - [Manual](#manual)
+    - [Requisitos](#requisitos)
+    - [Instalación](#instalación)
+    - [Uso](#uso)
 - [Metodologia](#metodologia)
-- [Descripcion técnica](#descripcion-tecnica)
-- [Diseño](diseño)
-- [Implementación](#implementacion)
+- [Descripcion técnica](#descripcion-técnica)
+    - [Diagrama de casos de uso](#diagrama-de-casos-de-uso)
+    - [Arquitectura de la aplicación](#arquitectura-de-la-aplicación)
+    - [Posibles tecnologías](#posibles-tecnologías)
+- [Diseño](#diseño)
+- [Implementación](#implementación)
 - [Pruebas](#pruebas)
-- [Análisis del tiempo invertido](#analisis-del-tiempo-invertido)
-- [Conclusiones](#conclusiones)
+    - [Casos Test](#casos-test)
+    - [Coverage](#coverage)
+- [Análisis del tiempo invertido](#análisis-del-tiempo-invertido)
+    - [Posibles mejoras](#posibles-mejoras)
+- [Conclusiones](#conclusiones-y-agradecimientos)
 
 ## Introducción
 Este proyecto ha sido creado por [<ins>Alejando Villar Rioja</ins>](https://github.com/KanekiiKat) y [<ins>Pablo González Temes</ins>](https://github.com/Pistacho14) dos alumnos de 1º de DAM del centro [<ins>IES de Teis</ins>](http://www.edu.xunta.gal/centros/iesteis/). Se trata de un "*¿Quién es Quién?*" un juego de mesa tradicional que trata de adivinar un personaje, el cual se elige aleatoriamente, y el jugador debe adivinarlo preguntando sobre las características faciales del elegido. En cualquier momento, el usuario puede tratar de adivinar el personaje, aunque aun tenga dudas sobre cual es el correcto. Si lo acierta se considerará como una victoria, mientras que en el caso contrario será una derrota.
+
+### Scope
+![Scope](/assets/img-docs/Scope.png)
 
 ## Manual
 
@@ -154,7 +167,15 @@ En este proyecto se ha usado:
 - [Markdown](https://markdown.es)
 
 ## Pruebas
+### Casos test
+Se hicieron casos test con las funciones que no dependían de algún elemento aleatorio o no requerían obligatoriamente interacción con la interfaz gráfica.
+El primero se utilizó para comprobar que el mensaje se limpiase correctamente, mientras que el propósito del segundo era asegurarse de que al preguntar por una característica nos devolviese a los personajes que la tenían.
 
+### Coverage
+---
+![Coverage](/assets/img-docs/Coverage.png)
+
+El coverage nos da una cobertura del 78%, esto se debe a que tanto "reiniciar.py" como "personaje_aleatorio.py" dependen de componentes del front, por lo tanto en los casos test esas partes no se activan, impidiendo llegar al 100%.
 
 ## Análisis del tiempo invertido
 Al momento de estar escribiendo este documento (18:50 - 11/12/2024) Este es el tiempo que hemos invertido en el código del proyecto.
