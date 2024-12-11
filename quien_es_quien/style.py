@@ -21,18 +21,17 @@ caja_cartas = dict(
     )
 caja_texto = dict(
         rx.input(placeholder="Ej: ¿Lleva gafas?", width="100%"),
-        width="50%",
+        width="58%",
         position="absolute",
         left="25%",
         top="80vh",  
         margin="1rem",
 )
 personaje_misterioso = dict(
-        width="15%",
-        height="35vh",
-        background_color="red",
+        height = "26em",
+        width = "15em",
         position="absolute",
-        left="80%",
-        top="18%",
+        left="82%",
+        top="14%",
         margin="2rem",
 )
