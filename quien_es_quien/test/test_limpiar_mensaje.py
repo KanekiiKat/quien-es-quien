@@ -3,13 +3,13 @@ from quien_es_quien.backend.limpiar_mensaje import limpiar_mensaje
 from quien_es_quien.state import State
 
 @pytest.mark.parametrize("mensaje, mensaje_limpio", [
-    ("gafas", "gafas"),
-    ("RUBIO", "rubio"),
-    ("Café", "cafe"),
-    ("castaño", "castano"),
-    ("", ""), 
-    ("12345", "12345"),  
-    ("maRrón", "marron"),
+    
+    ("", ""),
+    ("¿Sombrero?", "sombrero"),
+    ("Pelo rubio??", "pelorubio"),
+    ("bárbÁ", "barba"),
+    ("  Mujer" , "mujer"),
+    ("CALVO", "calvo"),
 ])
 def test_limpiar_mensaje(mensaje, mensaje_limpio):
     state = State()
