@@ -1,7 +1,6 @@
 import pytest
 from quien_es_quien.backend.buscar_caracteristica import buscar_caracteristica
 from quien_es_quien.state import State
-from quien_es_quien import personajes
 
 @pytest.mark.parametrize("mensaje_limpio, cartas_tapadas",[
     ("", []),
