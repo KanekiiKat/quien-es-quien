@@ -160,6 +160,8 @@ En este proyecto se ha usado:
 - [Python](https://www.python.org)
     - [Pytest](https://docs.pytest.org/en/stable/#) - Utilizado para hacer los casos test.
     - [Pydeps](https://pypi.org/project/pydeps/) - Usado para importar de forma rapida las dependencias en el archivo de requirements.txt.
+    - [Unicodedata](https://docs.python.org/es/3/library/unicodedata.html) - Usado para limpiar el mensaje entrante.
+    - [Random](https://docs.python.org/3/library/random.html) - Utilizado en la generación del personaje aleatorio.
 - [Reflex](https://reflex.dev)
     - CSS - Utilizado para interpretar los estilos del frontend utilizando un enfoque basado en CSS.
     - XML - Usado para estructurar el frontend empleando una sintaxis inspirada en XML.
