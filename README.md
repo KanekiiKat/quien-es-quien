@@ -14,6 +14,7 @@
     - [Posibles tecnologías](#posibles-tecnologías)
 - [Diseño](#diseño)
 - [Implementación](#implementación)
+    - [Uso de IA]()
 - [Pruebas](#pruebas)
     - [Casos Test](#casos-test)
     - [Coverage](#coverage)
@@ -167,6 +168,18 @@ En este proyecto se ha usado:
     - XML - Usado para estructurar el frontend empleando una sintaxis inspirada en XML.
 - [Git](https://git-scm.com)
 - [Markdown](https://markdown.es)
+
+### Uso de IA
+
+- [ChatGPT](https://openai.com/index/chatgpt/) - Utilizado para encontrar documentación de forma mas ágil y proporcionar ejemplos de código. El caso mas invasivo del uso de este software
+se haya en el script limpiar_mensaje(), para el cual se le pidió a la IA una explicación de como funcionaba unicodedata. El código que producía esta herramienta
+no se implementaba en el nuestro, primero tratábamos de entender el código de ejemplo y luego escribíamos el nuestro propio. Adicionalmente se utilizó tambien para 
+que añadiera a la lista de las características de los personajes que ya teníamos sinónimos de esos elementos (por ejemplo hombre y masculino). 
+
+- [Reflex](https://reflex.dev/) - Utilizado para buscar funcionamientos muy específicos del framework (posible implementación de sonido o lista de triggers disponibles para un componente).
+
+El uso de la IA en el proyecto fue en descenso a lo largo del desarrollo ya que las pocas veces que la usamos nos dimos cuenta que la mayoría del tiempo
+entorpecía el desarrollo en vez de agilizarlo.
 
 ## Pruebas
 ### Casos test
