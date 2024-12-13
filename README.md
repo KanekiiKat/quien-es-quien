@@ -14,7 +14,7 @@
     - [Posibles tecnologías](#posibles-tecnologías)
 - [Diseño](#diseño)
 - [Implementación](#implementación)
-    - [Uso de IA]()
+    - [Uso de IA](#uso-de-ia)
 - [Pruebas](#pruebas)
     - [Casos Test](#casos-test)
     - [Coverage](#coverage)
