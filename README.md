@@ -90,9 +90,9 @@ Para instalar *venv* en Linux se puede instalar con el siguiente comando.
 `$ sudo apt install python3-venv`
 
 ---
-Una vez instalados los requisitos creamos un archivo para la aplicación.
+Una vez instalados los requisitos clonamos el repositorio.
 
-` git clone git@github.com:<tuusuario>/tuproyecto.git`
+` git clone https://github.com/Pistacho14/quien-es-quien.git`
 
 Una vez clonado, creamos el entorno virtual con el siguiente comando:
 
