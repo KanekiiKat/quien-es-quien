@@ -48,20 +48,20 @@ Clonar el repositorio de github.
 
 Crear y activar un entorno virtual con *venv* (Si no está instalado, se puede ver como se instala en el apartado de [instalacion de requerimientos manualmente](#instalacion-de-requerimientos-manualmente), tanto en  Windows como en Linux).
 
-`python -m venv nombre_del_entorno`
+`python3 -m venv venv`
 
 
 **Windows:** 
 
-`> .\.venv\Scripts\activate`
+`> .\venv\Scripts\activate`
 
 **Linux:**
 
-`$ source nombre_del_entorno/bin/activate`
+`$ source venv/bin/activate`
 
 Para instalar los requerimientos manualmente ponemos el siguiente comando. 
 
-`pip install -r requeriments.txt`
+`pip install -r requirements.txt`
 
 Si hay errores en la instalación, puedes seguir los siguientes pasos para instalarlo de forma manual.
 
@@ -96,7 +96,7 @@ Una vez instalados los requisitos clonamos el repositorio.
 
 Una vez clonado, creamos el entorno virtual con el siguiente comando:
 
-`python3 -m venv nombre_del_entorno`
+`python3 -m venv venv`
 
 **Windows:** 
 
@@ -104,7 +104,7 @@ Una vez clonado, creamos el entorno virtual con el siguiente comando:
 
 **Linux:** 
 
-`$ source nombre_del_entorno/bin/activate`
+`$ source venv/bin/activate`
 
 (Cuando quieras desactivar *venv*, simplemente pon `deactivate` en la terminal)
 
