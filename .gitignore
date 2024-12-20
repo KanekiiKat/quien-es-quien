@@ -6,6 +6,7 @@ __pycache__/
 
 #venv
 venv
+..venvScriptsactivate
 
 #VSCode
 .vscode
@@ -13,3 +14,4 @@ venv
 #Coverage
 .coverage
 coverage_annotation/
+
