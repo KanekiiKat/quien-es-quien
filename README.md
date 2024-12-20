@@ -154,6 +154,29 @@ Sobre las dependencias, este sería el diagrama en cuestión:
 
 ![Diagrama de dependencias](/assets/img-docs/Diagrama-dependencias.png)
 
+## Modulos
+
+**quien_es_quien.py:** Es el front del programa, están los componentes de la interfaz de reflex, las cuales estan conectadas con el archivo state.py y style.py para poder ejecutar las diferentes funciones dependiendo de las acciones del usuario.
+
+**state.py:** Parte del backend, está definida la clase (State) necesaria para el reflex con dentro, las llamadas a los diferentes modulos cuando se necesite, menos una función que es necesaria que esté directamente en la clase ya que usa un componente directo de reflex.
+
+**style.py:** Guarda la mayoria de estilos del front, usando CSS en reflex.
+
+**personaje.py** Guarda la clase (Personajes) que contiene el nombre y las características de cada personaje en minúsculas, sin tildes, acentos, simbolos ni espacios.
+
+### backend
+
+**personaje_aleatorio.py:** Escoge un personaje aleatorio al empezar la partida o al reiniciarla.
+
+**limpiar_mensaje.py:** Limpia la el mensaje dejandolo en minúsculas, sin tildes, acentos, simbolos ni espacios.
+
+**buscar_caracteristica.py:** Busca la cacterística especifica en la clase de Personajes y devuelve diferentes personajes dependiendo de si el personaje escogido aleatorio tiene o no la carácteristica escrita.
+
+**girar_carta.py:** Gira las cartas dependiendo de los personajes que le lleguen de buscar_caracteristica.py.
+
+**reiniciar.py:** Es llamado por el boton del front "Reiniciar partida" que resetea las variables y llama a personaje_aleatorio.py para poder jugar de nuevo.
+
+
 ## Implementación
 
 En este proyecto se ha usado:
