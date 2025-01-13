@@ -13,6 +13,7 @@
     - [Arquitectura de la aplicación](#arquitectura-de-la-aplicación)
     - [Posibles tecnologías](#posibles-tecnologías)
 - [Diseño](#diseño)
+    - [Modulos](#modulos)
 - [Implementación](#implementación)
     - [Uso de IA](#uso-de-ia)
 - [Pruebas](#pruebas)
